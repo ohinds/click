@@ -1,6 +1,0 @@
-# beat bpm on|off
-     0 150 on
-   155 125 on
-   172 150 on
-   210 125 on
-   300 125 off
