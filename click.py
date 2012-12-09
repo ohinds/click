@@ -4,7 +4,6 @@ import numpy
 import ordered_yaml_loader
 import re
 import sys
-import wave
 
 from pylab import *
 from scipy.io import wavfile
