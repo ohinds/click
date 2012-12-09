@@ -1,0 +1,100 @@
+# -*- yaml -*-
+
+count in:
+  signature: 4/4
+  tempo: 140
+  measures: 1
+
+intro:
+  repeats: 1
+  parta:
+    signature: 4/4
+    tempo: 140
+    measures: 9
+  partb:
+    signature: 3/4
+    tempo: 140
+    measures: 1
+  partc:
+    signature: 7/8
+    tempo: 80
+    measures: 8
+
+hook transition:
+  signature: 1/4
+  tempo: 152
+  measures: 1
+
+hook 1:
+  repeats: 2
+  parta:
+    signature: 4/4
+    tempo: 152
+    measures: 6
+  partb:
+    signature: 7/8
+    tempo: 76
+    measures: 2
+
+post hook 1:
+  signature: 4/4
+  tempo: 152
+  measures: 6
+
+driving:
+  repeats: 1
+  parta:
+    signature: 4/4
+    tempo: 152
+    measures: 15
+  partb:
+    signature: 3/4
+    tempo: 152
+    measures: 1
+
+low sponge:
+  signature: 7/8
+  tempo: 76
+  measures: 10
+
+verse 2 transition:
+  signature: 1/4
+  tempo: 152
+  measures: 1
+
+verse 2:
+  repeats: 2
+  parta:
+    signature: 4/4
+    tempo: 152
+    measures: 6
+  partb:
+    signature: 7/8
+    tempo: 76
+    measures: 2
+
+post verse 2:
+  signature: 4/4
+  tempo: 152
+  measures: 6
+
+break:
+  repeats: 3
+  parta:
+    signature: 9/4
+    tempo: 152
+    measures: 1
+  partb:
+    signature: 4/4
+    tempo: 152
+    measures: 6
+
+post break:
+  signature: 9/4
+  tempo: 152
+  measures: 1
+
+end:
+  signature: 7/8
+  tempo: 76
+  measures: 60
