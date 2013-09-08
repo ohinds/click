@@ -47,8 +47,15 @@ def compute_total_samples(click_map):
 
     for section in click_map:
         sec_val = section.values()[0]
-        sig = parse_signature(sec_val["signature"])
-        effective_tempo = sec_val['tempo'] * sig[1] / 4.
+        try:
+            sig = parse_signature(sec_val["signature"])
+        except:
+            pass
+        try:
+            tempo = sec_val["tempo"]
+        except:
+            pass
+        effective_tempo = tempo * sig[1] / 4.
         samples += (sig[0] * sec_val['measures'] *
                     get_tempo_len(effective_tempo))
 
@@ -72,10 +79,27 @@ def create_click_from_map(accent_sample, sample, click_map):
                             numpy.int16)
 
     start = 0
+    last_tempo = None
+    last_signature = None
     for section in click_map:
         sec_val = section.values()[0]
-        sig = parse_signature(sec_val["signature"])
-        effective_tempo = sec_val['tempo'] * sig[1] / 4.
+        if "signature" in sec_val:
+            sig = parse_signature(sec_val["signature"])
+            last_sig = sig
+        elif last_sig is not None:
+            sig = last_sig
+        else:
+            raise ValueError("No time signature specified")
+
+        if "tempo" in sec_val:
+            tempo = sec_val["tempo"]
+            last_tempo = tempo
+        elif last_tempo is not None:
+            tempo = last_tempo
+        else:
+            raise ValueError("No tempo specified")
+
+        effective_tempo = tempo * sig[1] / 4.
         off = "silent" in sec_val and sec_val["silent"]
 
         if (sig[0] > 1):
