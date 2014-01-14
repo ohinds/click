@@ -73,7 +73,7 @@ def make_tempo_click(sample, tempo):
 def create_click_from_map(accent_sample, sample, click_map):
     """Create audio data representing a click track using the @p
     accent_sample and @p sample as sounds and @p click_map as the
-    schedule. 
+    schedule.
     """
     click_wav = numpy.zeros(compute_total_samples(click_map),
                             numpy.int16)
@@ -135,12 +135,15 @@ def main(argv):
     (options, args) = parser.parse_args(argv)
 
     # validate
-    if len(args) != 3:
+    if len(args) < 2:
         parser.print_help()
         return 1
 
     map_filename = args[1]
-    out_filename = args[2]
+    if len(args) == 2:
+        out_filename = map_filename + '.wav'
+    else:
+        out_filename = args[2]
 
     if not os.path.exists(map_filename):
         print "Error: click map file %s can't be found" % map_filename
